@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    {# This is the base template for the site–other templates extend this one #}
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Your new 11ty blog"/>
+    <title>Hatsune Miku Is the Best</title>
+    <link rel="stylesheet" type="text/css" href="/public/style.css"/>
+    {% seo "" %}
+  </head>
+  <body>
+    <main>
+
+      {# Page or post content will appear here #}
+      <header class="header">
+        <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+          <div class="burger" for="menu-toggle">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+        </button>
+        <div class="main-icon">
+          <img src="/public/logo.png" alt="Logo" width="50" height="50">
+        </div>
+        <div class="main-title"><a href="/">TRANSGENDER <br> LIBRARY</a></div>
+        <div class="item links">
+          <a href="/">socials 1</a>
+          <span class="divider"></span>
+          <a href="/about">socials 2</a>
+        </div>
+      </header>
+
+      <div class="wrapper">
+        <nav class="sidebar">
+          <ul>
+
+            <li class="item"><strong><a href="/">Home</a></strong></li>
+
+            {% for tag in collections.tagsList %}
+             <hr>
+              <details open class="accordion">
+                <summary class="item unselectable"><strong>{{ tag }}</strong></summary>
+                <ul>
+                  {%- for post in collections[tag] -%}
+                    <li>
+                      {% if page.url == post.url %}
+                        <label class="selected">{{ post.data.title }}</label>
+                      {% else %}
+                        <a href="{{ post.url }}">{{ post.data.title }}</a>
+                      {% endif %}
+                    </li>
+                  {%- endfor %}
+                </ul>
+              </details>
+             
+            {% endfor %}
+        </ul>
+      </nav>
+
+      {{ content | safe }}
+    </div>
+
+    <footer class="footer">
+      <div class="links">
+        <a href="/">Home</a>
+        <span class="divider"></span>
+        <a href="/about">About</a>
+      </div>
+    </footer>
+  </main>
+  <script>
+    document
+    .getElementById('sidebar-toggle')
+    .addEventListener('click', function () {
+        const sidebar = document.querySelector('.sidebar');
+        const burger = document.querySelector('.burger');
+        sidebar.classList.toggle('active');
+        burger.classList.toggle('active');
+      });
+  </script>
+</body>
+</html>

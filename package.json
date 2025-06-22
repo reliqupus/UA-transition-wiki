@@ -1,0 +1,19 @@
+{
+  "name": "transwiki",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "NODE_ENV=production eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.0",
+    "eleventy-plugin-seo": "^0.5.2",
+    "luxon": "^3.6.1"
+  }
+}

@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-home
+---
+
+{# The Home page uses this template–it extends the base template #}
+
+  <div class="content">
+    {{ content | safe }}
+    
+    {# After the the content defined in index.md, list the blog posts in the collection #}
+    <ul>
+      {% for tag in collections.tagsList %}
+      <li> <h3>{{tag}}</h3> </li>
+      {% for post in collections[tag] %}
+      <li> &emsp;
+        <a href="{{ post.url }}">
+        {% if page.url == post.url %} aria-current="page"{% endif %}{{ post.data.page.date | htmlDateString }}
+        <span class="divider"></span>
+        <strong>{{ post.data.title }}</strong>
+        <span class="divider"></span>
+        {{ post.data.description }}
+        </a>
+      </li>
+      {% endfor %}
+      {% endfor %}
+    </ul>
+</div>
+
+
