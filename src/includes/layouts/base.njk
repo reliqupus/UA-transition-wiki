@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="Your new 11ty blog"/>
     <title>Hatsune Miku Is the Best</title>
-    <link rel="stylesheet" type="text/css" href="/public/style.css"/>
+    <link rel="stylesheet" type="text/css" href={{"/public/style.css" | PREFIX }}>
     {% seo "" %}
   </head>
   <body>
@@ -24,9 +24,9 @@
           </div>
         </button>
         <div class="main-icon">
-          <img src="/public/logo.png" alt="Logo" width="50" height="50">
+          <img src={{"/public/logo.png" | PREFIX}} alt="Logo" width="50" height="50">
         </div>
-        <div class="main-title"><a href="/">TRANSGENDER <br> LIBRARY</a></div>
+        <div class="main-title"><a href={{"/" | PREFIX}}>TRANSGENDER <br> LIBRARY</a></div>
         <div class="item links">
           <a href="/">socials 1</a>
           <span class="divider"></span>
@@ -38,7 +38,7 @@
         <nav class="sidebar">
           <ul>
 
-            <li class="item"><strong><a href="/">Home</a></strong></li>
+            <li class="item"><strong><a href={{"/" | PREFIX}}>Home</a></strong></li>
 
             {% for tag in collections.tagsList %}
              <hr>
@@ -47,10 +47,10 @@
                 <ul>
                   {%- for post in collections[tag] -%}
                     <li>
-                      {% if page.url == post.url %}
+                      {% if page.url == post.url | PREFIX %}
                         <label class="selected">{{ post.data.title }}</label>
                       {% else %}
-                        <a href="{{ post.url }}">{{ post.data.title }}</a>
+                        <a href="{{ post.url | PREFIX }}">{{ post.data.title }}</a>
                       {% endif %}
                     </li>
                   {%- endfor %}
@@ -66,9 +66,9 @@
 
     <footer class="footer">
       <div class="links">
-        <a href="/">Home</a>
+        <a href={{"/" | PREFIX}}>Home</a>
         <span class="divider"></span>
-        <a href="/about">About</a>
+        <a href={{"/about" | PREFIX}}>About</a>
       </div>
     </footer>
   </main>

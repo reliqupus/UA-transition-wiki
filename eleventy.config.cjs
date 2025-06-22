@@ -1,6 +1,8 @@
 const { DateTime } = require("luxon");
 const pluginSEO = require("eleventy-plugin-seo");
 
+const PREFIX = "UA-transition-wiki";
+
 module.exports = function (eleventyConfig) {
     eleventyConfig.setTemplateFormats([
         // Templates:
@@ -27,6 +29,10 @@ module.exports = function (eleventyConfig) {
     // Filters let you modify the content https://www.11ty.dev/docs/filters/
     eleventyConfig.addFilter("htmlDateString", dateObj => {
         return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
+    });
+
+    eleventyConfig.addFilter("PREFIX", dateObj => {
+        return PREFIX + dateObj
     });
 
     eleventyConfig.setBrowserSyncConfig({ ghostMode: false });

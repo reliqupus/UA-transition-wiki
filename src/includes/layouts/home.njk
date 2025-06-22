@@ -14,7 +14,7 @@ templateClass: tmpl-home
       <li> <h3>{{tag}}</h3> </li>
       {% for post in collections[tag] %}
       <li> &emsp;
-        <a href="{{ post.url }}">
+        <a href="{{post.url | PREFIX}}">
         {% if page.url == post.url %} aria-current="page"{% endif %}{{ post.data.page.date | htmlDateString }}
         <span class="divider"></span>
         <strong>{{ post.data.title }}</strong>
@@ -26,5 +26,3 @@ templateClass: tmpl-home
       {% endfor %}
     </ul>
 </div>
-
-
