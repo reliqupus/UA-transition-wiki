@@ -31,8 +31,8 @@ module.exports = function (eleventyConfig) {
         return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
     });
 
-    eleventyConfig.addFilter("PREFIX", dateObj => {
-        return PREFIX + dateObj
+    eleventyConfig.addFilter("PREFIX", string => {
+        return `/${PREFIX}${string}`;
     });
 
     eleventyConfig.setBrowserSyncConfig({ ghostMode: false });

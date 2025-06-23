@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "NODE_ENV=production eleventy",
+    "build": "npx @11ty/eleventy",
     "gh-pages-build": "npx @11ty/eleventy --pathprefix=/UA-transition-wiki/"
   },
   "keywords": [],

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="Your new 11ty blog"/>
     <title>Hatsune Miku Is the Best</title>
-    <link rel="stylesheet" type="text/css" href={{"/public/style.css" | PREFIX }}>
+    <link rel="stylesheet" type="text/css" href={{"/public/style.css" | PREFIX}}>
     {% seo "" %}
   </head>
   <body>
@@ -50,7 +50,7 @@
                       {% if page.url == post.url | PREFIX %}
                         <label class="selected">{{ post.data.title }}</label>
                       {% else %}
-                        <a href="{{ post.url | PREFIX }}">{{ post.data.title }}</a>
+                        <a href={{ post.url | PREFIX }}>{{ post.data.title }}</a>
                       {% endif %}
                     </li>
                   {%- endfor %}
