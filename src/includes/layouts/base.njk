@@ -6,15 +6,16 @@
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="Your new 11ty blog"/>
-    <title>Hatsune Miku Is the Best</title>
+    <meta name="description" content="transwiki"/>
+    <title>transwiki</title>
     <link rel="stylesheet" type="text/css" href={{"/public/style.css" | PREFIX}}>
     {% seo "" %}
   </head>
   <body>
     <main>
 
-      {# Page or post content will appear here #}
+      {# sidebar toggle #}
+
       <header class="header">
         <button id="sidebar-toggle" aria-label="Toggle Sidebar">
           <div class="burger" for="menu-toggle">
@@ -23,18 +24,25 @@
             <span class="line"></span>
           </div>
         </button>
+
         <div class="main-icon">
           <img src={{"/public/logo.png" | PREFIX}} alt="Logo" width="50" height="50">
         </div>
+
         <div class="main-title"><a href={{"/" | PREFIX}}>TRANSGENDER <br> LIBRARY</a></div>
         <div class="item links">
-          <a href="/">socials 1</a>
+          <a href={{"/" | PREFIX}}>socials 1</a>
           <span class="divider"></span>
-          <a href="/about">socials 2</a>
+          <a href={{"/" | PREFIX}}>socials 2</a>
         </div>
+
       </header>
 
+      {# page wrapper #}
+
       <div class="wrapper">
+        {# sidebar #}
+
         <nav class="sidebar">
           <ul>
 
@@ -61,8 +69,13 @@
         </ul>
       </nav>
 
+      {# content #}
+
       {{ content | safe }}
+
     </div>
+
+    {# footer #}
 
     <footer class="footer">
       <div class="links">
